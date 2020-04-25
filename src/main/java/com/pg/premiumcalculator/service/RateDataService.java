@@ -5,6 +5,7 @@ import java.util.Calendar;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.pg.premiumcalculator.constants.Constants;
@@ -14,23 +15,24 @@ import com.pg.premiumcalculator.repository.RateRepository;
 
 @Service
 public class RateDataService {
-	
+
 	@Autowired
 	private RateRepository rateRepository;
-	@Autowired
 	private AgeCalculatorService ageCalculatorService;
 	
-//	private static Logger logger = LogManager.getLogger(RateDataService.class.getName());
+	private static Logger logger = LogManager.getLogger(RateDataService.class.getName());
 	
 	public Double findRate(BasicVehicleDetailsPOJO basicVehicleDetailsPOJO)
 	{
-//		logger.debug("inside rate data service");
-//		logger.debug(basicVehicleDetailsPOJO.toString());
+		ageCalculatorService = new AgeCalculatorService();
+		
+		logger.debug("inside rate data service");
+		logger.debug(basicVehicleDetailsPOJO.toString());
 		
         String currentDate = (Calendar.getInstance().get(Calendar.DAY_OF_MONTH)+"-"+(Calendar.getInstance().get(Calendar.MONTH)+1)+"-"+Calendar.getInstance().get(Calendar.YEAR));
 		Integer age = ageCalculatorService.getDays(currentDate, basicVehicleDetailsPOJO.getDateOfRegistration());
 		
-//		logger.debug(age);
+		logger.debug(age);
 		
 		Vehicle vehicle = basicVehicleDetailsPOJO.getVehicle();
 		

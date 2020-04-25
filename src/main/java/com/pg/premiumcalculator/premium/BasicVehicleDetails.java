@@ -2,17 +2,19 @@ package com.pg.premiumcalculator.premium;
 
 import java.util.LinkedHashMap;
 
+import org.springframework.stereotype.Component;
+
 import com.pg.premiumcalculator.constants.Constants;
 import com.pg.premiumcalculator.models.BasicVehicleDetailsPOJO;
 
+@Component
 public class BasicVehicleDetails {
 	
 	private BasicVehicleDetailsPOJO basicVehicleDetailsPOJO;
 
 	LinkedHashMap<String,String> data = new LinkedHashMap<>();
     
-    public BasicVehicleDetails(BasicVehicleDetailsPOJO basicVehicleDetailsPOJO) {
-		super();
+    public void init(BasicVehicleDetailsPOJO basicVehicleDetailsPOJO) {
 		this.basicVehicleDetailsPOJO = basicVehicleDetailsPOJO;
 	}
     

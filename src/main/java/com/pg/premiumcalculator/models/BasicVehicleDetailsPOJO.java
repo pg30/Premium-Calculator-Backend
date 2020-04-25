@@ -18,12 +18,12 @@ public class BasicVehicleDetailsPOJO {
 	
 	private Vehicle vehicle;
 	
-	private double 	idv,
+	private Double 	idv,
 					cubicCapacity,
 					extCngKit,
 					gvw;
 	
-	private int 	seatingCapacity;
+	private Integer 	seatingCapacity;
 	
 	private boolean isCng;
 	
@@ -55,10 +55,10 @@ public class BasicVehicleDetailsPOJO {
 	public void init()
     {
     	vehicle = null;
-    	idv=0;
-    	cubicCapacity=0;
-    	extCngKit=0;
-    	gvw=0;
+    	idv=0.0;
+    	cubicCapacity=0.0;
+    	extCngKit=0.0;
+    	gvw=0.0;
     	seatingCapacity=0;
     	isCng=false;
     	dateOfRegistration=null;
@@ -77,43 +77,43 @@ public class BasicVehicleDetailsPOJO {
 		this.vehicle = vehicle;
 	}
 
-	public double getIdv() {
+	public Double getIdv() {
 		return idv;
 	}
 
-	public void setIdv(double idv) {
+	public void setIdv(Double idv) {
 		this.idv = idv;
 	}
 
-	public double getCubicCapacity() {
+	public Double getCubicCapacity() {
 		return cubicCapacity;
 	}
 
-	public void setCubicCapacity(double cubicCapacity) {
+	public void setCubicCapacity(Double cubicCapacity) {
 		this.cubicCapacity = cubicCapacity;
 	}
 
-	public double getExtCngKit() {
+	public Double getExtCngKit() {
 		return extCngKit;
 	}
 
-	public void setExtCngKit(double extCngKit) {
+	public void setExtCngKit(Double extCngKit) {
 		this.extCngKit = extCngKit;
 	}
 
-	public double getGvw() {
+	public Double getGvw() {
 		return gvw;
 	}
 
-	public void setGvw(double gvw) {
+	public void setGvw(Double gvw) {
 		this.gvw = gvw;
 	}
 
-	public int getSeatingCapacity() {
+	public Integer getSeatingCapacity() {
 		return seatingCapacity;
 	}
 
-	public void setSeatingCapacity(int seatingCapacity) {
+	public void setSeatingCapacity(Integer seatingCapacity) {
 		this.seatingCapacity = seatingCapacity;
 	}
 

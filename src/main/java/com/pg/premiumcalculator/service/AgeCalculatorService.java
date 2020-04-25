@@ -8,7 +8,6 @@ import java.util.Locale;
 
 import org.springframework.stereotype.Service;
 
-@Service
 public class AgeCalculatorService {
 	
     private SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);

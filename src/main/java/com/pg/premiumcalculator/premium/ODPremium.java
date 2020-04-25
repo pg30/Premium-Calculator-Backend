@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.pg.premiumcalculator.constants.Constants;
 import com.pg.premiumcalculator.models.BasicVehicleDetailsPOJO;
@@ -13,6 +14,7 @@ import com.pg.premiumcalculator.models.ODPremiumPOJO;
 import com.pg.premiumcalculator.service.PremiumDataService;
 import com.pg.premiumcalculator.service.RateDataService;
 
+@Component
 public class ODPremium {
 	private ODPremiumPOJO odPremiumPOJO;
 	private BasicVehicleDetailsPOJO basicVehicleDetailsPOJO;
@@ -22,39 +24,35 @@ public class ODPremium {
 	
 	private static Logger logger = LogManager.getLogger(ODPremium.class.getName());
 	
-    public double basicOD=0,
-            rate=0,
-            additionalOd=0;
-    public Integer
-            elecRate = Constants.ELEC_RATE,
-            imt23Rate = Constants.IMT_RATE,
-            geoExt = Constants.GEO_EXT_COST,
-            per100Kg = Constants.PER_100KG_COST,
-            overturningRate = Constants.OVERTURNING_RATE,
-            inbuiltCngRate = Constants.INBUILT_CNG_RATE,
-            externalCngRate = Constants.EXTERNAL_CNG_RATE;
+    public Double 	basicOD=0.0,
+    				rate=0.0,
+    				additionalOd=0.0,
+		            elecRate = Constants.ELEC_RATE,
+		            imt23Rate = Constants.IMT_RATE,
+		            geoExt = Constants.GEO_EXT_COST,
+		            per100Kg = Constants.PER_100KG_COST,
+		            overturningRate = Constants.OVERTURNING_RATE,
+		            inbuiltCngRate = Constants.INBUILT_CNG_RATE,
+		            externalCngRate = Constants.EXTERNAL_CNG_RATE;
 
 	DecimalFormat df = new DecimalFormat("0.00");
 	LinkedHashMap<String,String> data = new LinkedHashMap<>();
+
 	
-	
-	public ODPremium(ODPremiumPOJO odPremiumPOJO, BasicVehicleDetailsPOJO basicVehicleDetailsPOJO) {
-		super();
+	void init(ODPremiumPOJO odPremiumPOJO, BasicVehicleDetailsPOJO basicVehicleDetailsPOJO)
+	{
+		
 		this.odPremiumPOJO = odPremiumPOJO;
 		this.basicVehicleDetailsPOJO = basicVehicleDetailsPOJO;
-		init();
-	}
-
-	//TODO : initialize rate, additionalOD, 
-	void init()
-	{
-	    basicOD=0;
+		
+	    basicOD=0.0;
 	    
 	    logger.debug("inside od premium init");
 	    logger.debug(basicVehicleDetailsPOJO.toString());
 	    
 	    rate=rateDataService.findRate(basicVehicleDetailsPOJO);
 	    additionalOd=rateDataService.findAdditionalOd(basicVehicleDetailsPOJO);
+	    
 	    elecRate = Constants.ELEC_RATE;
 	    imt23Rate = Constants.IMT_RATE;
 	    geoExt = Constants.GEO_EXT_COST;
@@ -64,7 +62,7 @@ public class ODPremium {
 	    externalCngRate = Constants.EXTERNAL_CNG_RATE;
 	}
 		
-	double calculatePremium()
+	Double calculatePremium()
 	{
 	    data.clear();
 	    data.put("Rate",Double.toString(rate));
@@ -104,16 +102,16 @@ public class ODPremium {
 	        data.put("Extra cost per 100kg",df.format((((basicVehicleDetailsPOJO.getGvw()-12000)/100)*per100Kg)));
 	    }
 	    
-	    double zerodepprem = basicVehicleDetailsPOJO.getIdv()*(odPremiumPOJO.getZeroDepRate()/100);
+	    Double zerodepprem = basicVehicleDetailsPOJO.getIdv()*(odPremiumPOJO.getZeroDepRate()/100);
 	    if(zerodepprem>0)
 	        data.put("Zerodep@"+odPremiumPOJO.getZeroDepRate()+"%",df.format(zerodepprem));
 	    
-	    double tempElec=0;
+	    Double tempElec=0.0;
 	    tempElec = odPremiumPOJO.getElec()*(elecRate/100);
 	    if(tempElec>0)
 	        data.put("Electrical Accessories",df.format(tempElec));
 	    
-	    double tempNonElec=0;
+	    Double tempNonElec=0.0;
 	    tempNonElec = odPremiumPOJO.getNonelec()*(rate/100);
 	    if(tempNonElec>0)
 	        data.put("Non-Electrical Accessories",df.format(tempNonElec));
@@ -131,10 +129,10 @@ public class ODPremium {
 	        basicOD+=(overturningRate/100)*basicVehicleDetailsPOJO.getIdv();
 	    }
 	    
-	    double ncbDiscPrem = basicOD*(odPremiumPOJO.getNcb()/100);
+	    Double ncbDiscPrem = basicOD*(odPremiumPOJO.getNcb()/100);
 	    data.put("NCB@"+odPremiumPOJO.getNcb()+"%",df.format(ncbDiscPrem));
 	    basicOD-=ncbDiscPrem;
-	    double odDiscPrem = basicOD*(odPremiumPOJO.getOdDisc()/100);
+	    Double odDiscPrem = basicOD*(odPremiumPOJO.getOdDisc()/100);
 	    data.put("OD Discount@"+odPremiumPOJO.getOdDisc()+"%",df.format(odDiscPrem));
 	    basicOD-=odDiscPrem;
 	    basicOD+=zerodepprem;

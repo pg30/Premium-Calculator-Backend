@@ -21,15 +21,15 @@ public class Constants {
 	public static Integer PCV_3WHEELER_ID = 8;
 	public static Integer MISCELLANEOUS_ID = 9;
 
-	public static Integer CNG_COST = 60;
-	public static Integer NFPP_COST = 75;
-	public static Integer GEO_EXT_COST = 400;
-	public static Integer PER_100KG_COST = 27;
-	public static Integer IMT_RATE = 15;
-	public static Integer ELEC_RATE = 4;
-	public static Integer GST_RATE = 18;
-	public static Integer EXTRA_GST_RATE = 12;
-	public static Integer INBUILT_CNG_RATE = 5;
-	public static Integer EXTERNAL_CNG_RATE = 4;
-	public static Integer OVERTURNING_RATE = 15;
+	public static Double CNG_COST = 60.0;
+	public static Double NFPP_COST = 75.0;
+	public static Double GEO_EXT_COST = 400.0;
+	public static Double PER_100KG_COST = 27.0;
+	public static Double IMT_RATE = 15.0;
+	public static Double ELEC_RATE = 4.0;
+	public static Double GST_RATE = 18.0;
+	public static Double EXTRA_GST_RATE = 12.0;
+	public static Double INBUILT_CNG_RATE = 5.0;
+	public static Double EXTERNAL_CNG_RATE = 4.0;
+	public static Double OVERTURNING_RATE = 15.0;
 }

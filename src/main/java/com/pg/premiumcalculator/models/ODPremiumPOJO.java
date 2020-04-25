@@ -1,7 +1,7 @@
 package com.pg.premiumcalculator.models;
 
 public class ODPremiumPOJO {
-	private double 	zeroDepRate,
+	private Double 	zeroDepRate,
 		            elec,
 		            nonelec,
 		            ncb,
@@ -13,11 +13,11 @@ public class ODPremiumPOJO {
 	
 	void init()
 	{
-        zeroDepRate=0;
-        elec=0;
-        nonelec=0;
-        ncb=0;
-        odDisc=0;		
+        zeroDepRate=0.0;
+        elec=0.0;
+        nonelec=0.0;
+        ncb=0.0;
+        odDisc=0.0;		
         wantImt23=false;
         wantGeoExt=false;
         wantOverturning=false;
@@ -36,43 +36,43 @@ public class ODPremiumPOJO {
 				+ ", wantOverturning=" + wantOverturning + "]";
 	}
 
-	public double getZeroDepRate() {
+	public Double getZeroDepRate() {
 		return zeroDepRate;
 	}
 
-	public void setZeroDepRate(double zeroDepRate) {
+	public void setZeroDepRate(Double zeroDepRate) {
 		this.zeroDepRate = zeroDepRate;
 	}
 
-	public double getElec() {
+	public Double getElec() {
 		return elec;
 	}
 
-	public void setElec(double elec) {
+	public void setElec(Double elec) {
 		this.elec = elec;
 	}
 
-	public double getNonelec() {
+	public Double getNonelec() {
 		return nonelec;
 	}
 
-	public void setNonelec(double nonelec) {
+	public void setNonelec(Double nonelec) {
 		this.nonelec = nonelec;
 	}
 
-	public double getNcb() {
+	public Double getNcb() {
 		return ncb;
 	}
 
-	public void setNcb(double ncb) {
+	public void setNcb(Double ncb) {
 		this.ncb = ncb;
 	}
 
-	public double getOdDisc() {
+	public Double getOdDisc() {
 		return odDisc;
 	}
 
-	public void setOdDisc(double odDisc) {
+	public void setOdDisc(Double odDisc) {
 		this.odDisc = odDisc;
 	}
 

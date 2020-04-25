@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.LinkedHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.pg.premiumcalculator.constants.Constants;
 import com.pg.premiumcalculator.models.BasicVehicleDetailsPOJO;
@@ -12,15 +13,16 @@ import com.pg.premiumcalculator.service.RateDataService;
 import com.pg.premiumcalculator.service.TpDataService;
 import com.pg.premiumcalculator.service.TpPerPassengerDataService;
 
+@Component
 public class TPPremium {
 	
 	private TPPremiumPOJO tpPremiumPOJO;
 	private BasicVehicleDetailsPOJO basicVehicleDetailsPOJO;
 	public Integer 	basicTp=0,
 					tpPerPassenger=0,
-					cngCost=Constants.CNG_COST,
-					nfppCost=Constants.NFPP_COST,
 					tppdCost=0;
+	public Double 	cngCost=Constants.CNG_COST,
+					nfppCost=Constants.NFPP_COST;
 	
 	@Autowired
 	private RateDataService rateService;
@@ -33,21 +35,19 @@ public class TPPremium {
 
     LinkedHashMap<String,String> data = new LinkedHashMap<>();
     
-    public TPPremium(TPPremiumPOJO tpPremiumPOJO, BasicVehicleDetailsPOJO basicVehicleDetailsPOJO) {
-		super();
+
+	void init(TPPremiumPOJO tpPremiumPOJO, BasicVehicleDetailsPOJO basicVehicleDetailsPOJO)
+    {
 		this.tpPremiumPOJO = tpPremiumPOJO;
 		this.basicVehicleDetailsPOJO = basicVehicleDetailsPOJO;
-		init();
-	}
-    
-    //TODO : initialize basicTP and tpPerPassenger, tppdCost
-	void init()
-    {
+		
 		basicTp=tpService.findTp(basicVehicleDetailsPOJO);
 		tpPerPassenger=tpService2.findTpPerPassenger(basicVehicleDetailsPOJO);
+		tppdCost=rateService.findTppd(basicVehicleDetailsPOJO.getVehicle());
+		
 		cngCost=Constants.CNG_COST;
 		nfppCost=Constants.NFPP_COST;
-		tppdCost=rateService.findTppd(basicVehicleDetailsPOJO.getVehicle());
+
     }
 
     double calculatePremium()

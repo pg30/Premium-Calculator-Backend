@@ -2,7 +2,7 @@ package com.pg.premiumcalculator.models;
 
 public class TPPremiumPOJO {
 	
-    private double 	paToDriver,
+    private Double 	paToDriver,
 		            llToDriver,
 		            paToUnnamedPassenger,
 		            nfpp;
@@ -16,10 +16,10 @@ public class TPPremiumPOJO {
     
     void init()
     {
-        paToDriver=0;
-        llToDriver=0;
-        paToUnnamedPassenger=0;
-        nfpp=0;
+        paToDriver=0.0;
+        llToDriver=0.0;
+        paToUnnamedPassenger=0.0;
+        nfpp=0.0;
         lessTppd=false;
     }
     
@@ -31,35 +31,35 @@ public class TPPremiumPOJO {
 				+ paToUnnamedPassenger + ", nfpp=" + nfpp + ", lessTppd=" + lessTppd + "]";
 	}
 
-	public double getPaToDriver() {
+	public Double getPaToDriver() {
 		return paToDriver;
 	}
 
-	public void setPaToDriver(double paToDriver) {
+	public void setPaToDriver(Double paToDriver) {
 		this.paToDriver = paToDriver;
 	}
 
-	public double getLlToDriver() {
+	public Double getLlToDriver() {
 		return llToDriver;
 	}
 
-	public void setLlToDriver(double llToDriver) {
+	public void setLlToDriver(Double llToDriver) {
 		this.llToDriver = llToDriver;
 	}
 
-	public double getPaToUnnamedPassenger() {
+	public Double getPaToUnnamedPassenger() {
 		return paToUnnamedPassenger;
 	}
 
-	public void setPaToUnnamedPassenger(double paToUnnamedPassenger) {
+	public void setPaToUnnamedPassenger(Double paToUnnamedPassenger) {
 		this.paToUnnamedPassenger = paToUnnamedPassenger;
 	}
 
-	public double getNfpp() {
+	public Double getNfpp() {
 		return nfpp;
 	}
 
-	public void setNfpp(double nfpp) {
+	public void setNfpp(Double nfpp) {
 		this.nfpp = nfpp;
 	}
 
