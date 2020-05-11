@@ -10,10 +10,10 @@ import javax.persistence.Table;
 public class Carrier {
 	
 	@Id
-	@Column(name = "id")
+	@Column(name = "id",nullable = false, unique=true)
 	private Integer id;
 	
-	@Column(name = "carrier_name")
+	@Column(name = "carrier_name",nullable = false)
 	private String name;
 
 	public Carrier() {

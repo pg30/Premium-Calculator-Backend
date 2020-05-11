@@ -1,11 +1,8 @@
 package com.pg.premiumcalculator.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,39 +10,50 @@ import javax.persistence.Table;
 public class RateModel {
 	
 	@Id
-	@Column(name = "id")
+	@Column(name = "id",nullable = false,unique = true)
 	private Integer id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "vehicleId", referencedColumnName = "id")
-	private Vehicle vehicle;
+    @Column(name = "vehicleId")
+	private Integer vehicleId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "zoneId", referencedColumnName = "id")
-	private Zone zone;
+    @Column(name = "zoneId")
+	private Integer zoneId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "carrierId", referencedColumnName = "id")
-	private Carrier carrier;
+    @Column(name = "carrierId")
+	private Integer carrierId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ccId", referencedColumnName = "id")
-	private ccRange cc;
+    @Column(name = "ccId")
+	private Integer ccId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "dayId", referencedColumnName = "id")
-	private dayRange day;
+    @Column(name = "dayId")
+	private Integer dayId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "passengerId", referencedColumnName = "id")
-	private passengerRange passenger;
+    @Column(name = "passengerId")
+	private Integer passengerId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "weightId", referencedColumnName = "id")
-	private weightRange weight;
+    @Column(name = "weightId")
+	private Integer weightId;
 	
-	@Column(name = "cost")
+	@Column(name = "cost", nullable = false)
 	private Double cost;
+
+	public RateModel() {
+		super();
+	}
+
+	public RateModel(Integer id, Integer vehicleId, Integer zoneId, Integer carrierId, Integer ccId, Integer dayId,
+			Integer passengerId, Integer weightId, Double cost) {
+		super();
+		this.id = id;
+		this.vehicleId = vehicleId;
+		this.zoneId = zoneId;
+		this.carrierId = carrierId;
+		this.ccId = ccId;
+		this.dayId = dayId;
+		this.passengerId = passengerId;
+		this.weightId = weightId;
+		this.cost = cost;
+	}
 
 	public Integer getId() {
 		return id;
@@ -55,60 +63,60 @@ public class RateModel {
 		this.id = id;
 	}
 
-	public Vehicle getVehicle() {
-		return vehicle;
+	public Integer getVehicleId() {
+		return vehicleId;
 	}
 
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
+	public void setVehicleId(Integer vehicleId) {
+		this.vehicleId = vehicleId;
 	}
 
-	public Zone getZone() {
-		return zone;
+	public Integer getZoneId() {
+		return zoneId;
 	}
 
-	public void setZone(Zone zone) {
-		this.zone = zone;
+	public void setZoneId(Integer zoneId) {
+		this.zoneId = zoneId;
 	}
 
-	public Carrier getCarrier() {
-		return carrier;
+	public Integer getCarrierId() {
+		return carrierId;
 	}
 
-	public void setCarrier(Carrier carrier) {
-		this.carrier = carrier;
+	public void setCarrierId(Integer carrierId) {
+		this.carrierId = carrierId;
 	}
 
-	public ccRange getCc() {
-		return cc;
+	public Integer getCcId() {
+		return ccId;
 	}
 
-	public void setCc(ccRange cc) {
-		this.cc = cc;
+	public void setCcId(Integer ccId) {
+		this.ccId = ccId;
 	}
 
-	public dayRange getDay() {
-		return day;
+	public Integer getDayId() {
+		return dayId;
 	}
 
-	public void setDay(dayRange day) {
-		this.day = day;
+	public void setDayId(Integer dayId) {
+		this.dayId = dayId;
 	}
 
-	public passengerRange getPassenger() {
-		return passenger;
+	public Integer getPassengerId() {
+		return passengerId;
 	}
 
-	public void setPassenger(passengerRange passenger) {
-		this.passenger = passenger;
+	public void setPassengerId(Integer passengerId) {
+		this.passengerId = passengerId;
 	}
 
-	public weightRange getWeight() {
-		return weight;
+	public Integer getWeightId() {
+		return weightId;
 	}
 
-	public void setWeight(weightRange weight) {
-		this.weight = weight;
+	public void setWeightId(Integer weightId) {
+		this.weightId = weightId;
 	}
 
 	public Double getCost() {
@@ -118,5 +126,6 @@ public class RateModel {
 	public void setCost(Double cost) {
 		this.cost = cost;
 	}
+
 	
 }

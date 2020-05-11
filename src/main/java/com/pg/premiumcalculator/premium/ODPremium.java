@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import com.pg.premiumcalculator.constants.Constants;
 import com.pg.premiumcalculator.models.BasicVehicleDetailsPOJO;
 import com.pg.premiumcalculator.models.ODPremiumPOJO;
-import com.pg.premiumcalculator.service.PremiumDataService;
 import com.pg.premiumcalculator.service.RateDataService;
 
 @Component

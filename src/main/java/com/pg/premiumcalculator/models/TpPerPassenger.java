@@ -1,65 +1,68 @@
 package com.pg.premiumcalculator.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "TpPerPassenger")
 public class TpPerPassenger {
 	@Id
-	@Column(name = "id")
+	@Column(name = "id",nullable = false,unique = true)
 	private Integer id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "vehicleId", referencedColumnName = "id")
-	private Vehicle vehicle;
+    @Column(name = "vehicleId")
+	private Integer vehicleId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ccId", referencedColumnName = "id")
-	private ccRange cc;
+    @Column(name = "ccId")
+	private Integer ccId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "passengerId", referencedColumnName = "id")
-	private passengerRange passenger;
+    @Column(name = "passengerId")
+	private Integer passengerId;
 		
-	@Column(name = "cost")
+	@Column(name = "cost",nullable = false)
 	private Integer cost;
 
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public TpPerPassenger(Integer id, Integer vehicleId, Integer ccId, Integer passengerId, Integer cost) {
+		super();
 		this.id = id;
+		this.vehicleId = vehicleId;
+		this.ccId = ccId;
+		this.passengerId = passengerId;
+		this.cost = cost;
 	}
 
-	public Vehicle getVehicle() {
-		return vehicle;
+	public TpPerPassenger() {
+		super();
 	}
 
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
+	public Integer getVehicleId() {
+		return vehicleId;
 	}
 
-	public ccRange getCc() {
-		return cc;
+	public void setVehicleId(Integer vehicleId) {
+		this.vehicleId = vehicleId;
 	}
 
-	public void setCc(ccRange cc) {
-		this.cc = cc;
+	public Integer getCcId() {
+		return ccId;
 	}
 
-	public passengerRange getPassenger() {
-		return passenger;
+	public void setCcId(Integer ccId) {
+		this.ccId = ccId;
 	}
 
-	public void setPassenger(passengerRange passenger) {
-		this.passenger = passenger;
+	public Integer getPassengerId() {
+		return passengerId;
+	}
+
+	public void setPassengerId(Integer passengerId) {
+		this.passengerId = passengerId;
 	}
 
 	public Integer getCost() {
@@ -69,5 +72,10 @@ public class TpPerPassenger {
 	public void setCost(Integer cost) {
 		this.cost = cost;
 	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	
 }

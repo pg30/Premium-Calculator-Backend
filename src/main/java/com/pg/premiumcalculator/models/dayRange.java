@@ -10,13 +10,13 @@ import javax.persistence.Table;
 public class dayRange {
 	
 	@Id
-	@Column(name = "id")
+	@Column(name = "id",nullable = false,unique = true)
 	private Integer id;
 	
-	@Column(name = "start")
+	@Column(name = "start",nullable = false)
 	private Integer start;
 	
-	@Column(name = "end")
+	@Column(name = "end",nullable = false)
 	private Integer end;
 
 	public Integer getId() {

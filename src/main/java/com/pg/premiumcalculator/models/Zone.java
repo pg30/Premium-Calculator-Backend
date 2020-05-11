@@ -10,10 +10,10 @@ import javax.persistence.Table;
 public class Zone {
 	
 	@Id
-	@Column(name = "id")
+	@Column(name = "id",nullable = false,unique = true)
 	private Integer id;//1,2,3
 	
-	@Column(name = "zone_name")
+	@Column(name = "zone_name",nullable = false)
 	private String name; //A,B,C
 	
 	public Zone() {

@@ -10,16 +10,20 @@ import javax.persistence.Table;
 public class Vehicle {
 	
 	@Id
-	@Column(name = "id")
+	@Column(name = "id",nullable = false,unique = true)
 	private Integer id;
 	
-	@Column(name = "vehicle_name")
+	@Column(name = "vehicle_name",nullable = false)
 	private String name;
 	
-	public Vehicle(Integer id, String name) {
+	@Column(name = "url")
+	private String url;
+	
+	public Vehicle(Integer id, String name, String url) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.url = url;
 	}
 	
 	public Vehicle() {
@@ -38,5 +42,13 @@ public class Vehicle {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
 	
 }

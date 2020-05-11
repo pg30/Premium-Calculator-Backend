@@ -23,16 +23,16 @@ public class TpDataService {
 			return tpRepository.findTpB(vehicle.getId(), basicDetailsPOJO.getSeatingCapacity());
 		
 		if(vehicle.getId()==Constants.GCV_ID)
-			return tpRepository.findTpC(vehicle.getId(), basicDetailsPOJO.getCarrier().getName(), basicDetailsPOJO.getGvw());
+			return tpRepository.findTpC(vehicle.getId(), basicDetailsPOJO.getCarrier(), basicDetailsPOJO.getGvw());
 		
 		if(vehicle.getId()==Constants.GCV_3WHEELER_ID)
-			return tpRepository.findTpD(vehicle.getId(), basicDetailsPOJO.getCarrier().getName());
+			return tpRepository.findTpD(vehicle.getId(), basicDetailsPOJO.getCarrier());
 		
 		if(vehicle.getId()==Constants.BUS_ID || vehicle.getId()==Constants.SCHOOL_BUS_ID)
 			return tpRepository.findTpE(vehicle.getId());
 		
 		if(vehicle.getId()==Constants.MISCELLANEOUS_ID)
-			return tpRepository.findTpF(vehicle.getId(), basicDetailsPOJO.getVehicleType().getName(), basicDetailsPOJO.getVehicleUse().getName());
+			return tpRepository.findTpF(vehicle.getId(), basicDetailsPOJO.getVehicleType(), basicDetailsPOJO.getVehicleUse());
 		return 0;
 	}
 }

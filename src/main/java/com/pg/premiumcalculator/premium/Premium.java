@@ -7,13 +7,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.pg.premiumcalculator.constants.Constants;
 import com.pg.premiumcalculator.models.BasicVehicleDetailsPOJO;
 import com.pg.premiumcalculator.models.ODPremiumPOJO;
 import com.pg.premiumcalculator.models.TPPremiumPOJO;
-import com.pg.premiumcalculator.service.PremiumDataService;
 
 @Component
 public class Premium {

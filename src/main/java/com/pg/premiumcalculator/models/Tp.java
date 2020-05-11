@@ -1,11 +1,8 @@
 package com.pg.premiumcalculator.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,39 +10,50 @@ import javax.persistence.Table;
 public class Tp {
 
 	@Id
-	@Column(name = "id")
+	@Column(name = "id",nullable = false,unique = true)
 	private Integer id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "vehicleId", referencedColumnName = "id")
-	private Vehicle vehicle;
+    @Column(name = "vehicleId")
+	private Integer vehicleId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "carrierId", referencedColumnName = "id")
-	private Carrier carrier;
+    @Column(name = "carrierId")
+	private Integer carrierId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ccId", referencedColumnName = "id")
-	private ccRange cc;
+    @Column(name = "ccId")
+	private Integer ccId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "passengerId", referencedColumnName = "id")
-	private passengerRange passenger;
+    @Column(name = "passengerId")
+	private Integer passengerId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "weightId", referencedColumnName = "id")
-	private weightRange weight;
+    @Column(name = "weightId")
+	private Integer weightId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "miscUseId", referencedColumnName = "id")
-	private MiscUse miscUse;
+    @Column(name = "miscUseId")
+	private Integer miscUseId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "miscTypeId", referencedColumnName = "id")
-	private MiscType miscType;
+    @Column(name = "miscTypeId")
+	private Integer miscTypeId;
 	
-	@Column(name = "cost")
+	@Column(name = "cost",nullable = false)
 	private Integer cost;
+
+	public Tp(Integer id, Integer vehicleId, Integer carrierId, Integer ccId, Integer passengerId, Integer weightId,
+			Integer miscUseId, Integer miscTypeId, Integer cost) {
+		super();
+		this.id = id;
+		this.vehicleId = vehicleId;
+		this.carrierId = carrierId;
+		this.ccId = ccId;
+		this.passengerId = passengerId;
+		this.weightId = weightId;
+		this.miscUseId = miscUseId;
+		this.miscTypeId = miscTypeId;
+		this.cost = cost;
+	}
+
+	public Tp() {
+		super();
+	}
 
 	public Integer getId() {
 		return id;
@@ -55,60 +63,60 @@ public class Tp {
 		this.id = id;
 	}
 
-	public Vehicle getVehicle() {
-		return vehicle;
+	public Integer getVehicleId() {
+		return vehicleId;
 	}
 
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
+	public void setVehicleId(Integer vehicleId) {
+		this.vehicleId = vehicleId;
 	}
 
-	public Carrier getCarrier() {
-		return carrier;
+	public Integer getCarrierId() {
+		return carrierId;
 	}
 
-	public void setCarrier(Carrier carrier) {
-		this.carrier = carrier;
+	public void setCarrierId(Integer carrierId) {
+		this.carrierId = carrierId;
 	}
 
-	public ccRange getCc() {
-		return cc;
+	public Integer getCcId() {
+		return ccId;
 	}
 
-	public void setCc(ccRange cc) {
-		this.cc = cc;
+	public void setCcId(Integer ccId) {
+		this.ccId = ccId;
 	}
 
-	public passengerRange getPassenger() {
-		return passenger;
+	public Integer getPassengerId() {
+		return passengerId;
 	}
 
-	public void setPassenger(passengerRange passenger) {
-		this.passenger = passenger;
+	public void setPassengerId(Integer passengerId) {
+		this.passengerId = passengerId;
 	}
 
-	public weightRange getWeight() {
-		return weight;
+	public Integer getWeightId() {
+		return weightId;
 	}
 
-	public void setWeight(weightRange weight) {
-		this.weight = weight;
+	public void setWeightId(Integer weightId) {
+		this.weightId = weightId;
 	}
 
-	public MiscUse getMiscUse() {
-		return miscUse;
+	public Integer getMiscUseId() {
+		return miscUseId;
 	}
 
-	public void setMiscUse(MiscUse miscUse) {
-		this.miscUse = miscUse;
+	public void setMiscUseId(Integer miscUseId) {
+		this.miscUseId = miscUseId;
 	}
 
-	public MiscType getMiscType() {
-		return miscType;
+	public Integer getMiscTypeId() {
+		return miscTypeId;
 	}
 
-	public void setMiscType(MiscType miscType) {
-		this.miscType = miscType;
+	public void setMiscTypeId(Integer miscTypeId) {
+		this.miscTypeId = miscTypeId;
 	}
 
 	public Integer getCost() {
@@ -118,5 +126,6 @@ public class Tp {
 	public void setCost(Integer cost) {
 		this.cost = cost;
 	}
+
 	
 }

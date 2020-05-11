@@ -26,17 +26,17 @@ public class BasicVehicleDetails {
         
         if(basicVehicleDetailsPOJO.getVehicle().getId() == Constants.MISCELLANEOUS_ID)
         {
-            data.put("Vehicle Use",basicVehicleDetailsPOJO.getVehicleUse().getName());
-            data.put("Vehicle Type",basicVehicleDetailsPOJO.getVehicleType().getName());
+            data.put("Vehicle Use",basicVehicleDetailsPOJO.getVehicleUse());
+            data.put("Vehicle Type",basicVehicleDetailsPOJO.getVehicleType());
         }
         
         if(basicVehicleDetailsPOJO.getVehicle().getId()==Constants.GCV_ID || basicVehicleDetailsPOJO.getVehicle().getId()==Constants.GCV_3WHEELER_ID)
         {
-            data.put("Carrier",basicVehicleDetailsPOJO.getCarrier().getName());
+            data.put("Carrier",basicVehicleDetailsPOJO.getCarrier());
         }
         
         data.put("Date of Registration",basicVehicleDetailsPOJO.getDateOfRegistration());
-        data.put("Zone",basicVehicleDetailsPOJO.getZone().getName());
+        data.put("Zone",basicVehicleDetailsPOJO.getZone());
         
         if(basicVehicleDetailsPOJO.getVehicle().getId()==Constants.GCV_ID && basicVehicleDetailsPOJO.getGvw()>0)
             data.put("GVW",Double.toString(basicVehicleDetailsPOJO.getGvw()));

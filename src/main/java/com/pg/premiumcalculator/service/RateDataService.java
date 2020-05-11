@@ -5,7 +5,6 @@ import java.util.Calendar;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.pg.premiumcalculator.constants.Constants;
@@ -37,16 +36,16 @@ public class RateDataService {
 		Vehicle vehicle = basicVehicleDetailsPOJO.getVehicle();
 		
 		if(vehicle.getId()==Constants.TWO_WHEELER_ID || vehicle.getId()==Constants.PRIVATE_CAR_ID || vehicle.getId()==Constants.TAXI_ID)
-			return rateRepository.findRateA(vehicle.getId(), basicVehicleDetailsPOJO.getZone().getName(), basicVehicleDetailsPOJO.getCubicCapacity(), age);
+			return rateRepository.findRateA(vehicle.getId(), basicVehicleDetailsPOJO.getZone(), basicVehicleDetailsPOJO.getCubicCapacity(), age);
 		
 		if(vehicle.getId()==Constants.PCV_3WHEELER_ID)
-			return rateRepository.findRateB(vehicle.getId(), basicVehicleDetailsPOJO.getZone().getName(), basicVehicleDetailsPOJO.getSeatingCapacity(), age);
+			return rateRepository.findRateB(vehicle.getId(), basicVehicleDetailsPOJO.getZone(), basicVehicleDetailsPOJO.getSeatingCapacity(), age);
 
 		if(vehicle.getId()==Constants.GCV_ID || vehicle.getId()==Constants.GCV_3WHEELER_ID)
-			return rateRepository.findRateC(vehicle.getId(), basicVehicleDetailsPOJO.getZone().getName(), basicVehicleDetailsPOJO.getCarrier().getName(), age);
+			return rateRepository.findRateC(vehicle.getId(), basicVehicleDetailsPOJO.getZone(), basicVehicleDetailsPOJO.getCarrier(), age);
 		
 		if(vehicle.getId()==Constants.BUS_ID || vehicle.getId()==Constants.SCHOOL_BUS_ID || vehicle.getId()==Constants.MISCELLANEOUS_ID)
-			return rateRepository.findRateD(vehicle.getId(), basicVehicleDetailsPOJO.getZone().getName(), age);		
+			return rateRepository.findRateD(vehicle.getId(), basicVehicleDetailsPOJO.getZone(), age);		
 		
 		return 0.0;
 	}

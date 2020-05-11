@@ -1,5 +1,7 @@
 package com.pg.premiumcalculator.constants;
 
+import java.util.LinkedHashMap;
+
 public class Constants {
 	public static String TWO_WHEELER_NAME = "Two Wheeler";
 	public static String PRIVATE_CAR_NAME = "Private Car";
@@ -32,4 +34,16 @@ public class Constants {
 	public static Double INBUILT_CNG_RATE = 5.0;
 	public static Double EXTERNAL_CNG_RATE = 4.0;
 	public static Double OVERTURNING_RATE = 15.0;
+	
+	public static String TWO_WHEELER_FILE_NAME = "two_wheeler.png";
+	public static String PRIVATE_CAR_FILE_NAME = "private_car.png";
+	public static String GCV_FILE_NAME = "goods_carrying_vehicle.png";
+	public static String TAXI_FILE_NAME = "taxi_upto_6_passengers.png";
+	public static String BUS_FILE_NAME = "bus.png";
+	public static String SCHOOL_BUS_FILE_NAME = "school_bus.png";
+	public static String GCV_3WHEELER_FILE_NAME = "three_wheeler_gcv.png";
+	public static String PCV_3WHEELER_FILE_NAME = "three_wheeler_pcv.png";
+	public static String MISCELLANEOUS_FILE_NAME = "miscellaneous_vehicle.png";
+	public static String APP_ICON_FILE_NAME = "appicon.png";	
+	
 }
