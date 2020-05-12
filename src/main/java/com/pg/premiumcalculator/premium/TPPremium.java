@@ -55,7 +55,11 @@ public class TPPremium {
         data.clear();
         
         if(basicTp==0)
-            return 0;
+        {
+            data.put("Basic TP",df.format(basicTp));
+            data.put("Final TP Premium(B)",Double.toString(Math.round(basicTp)));
+            return 0.0;
+        }
         
         double tempBasicTp = basicTp;
         data.put("Basic TP",df.format(tempBasicTp));
@@ -81,7 +85,7 @@ public class TPPremium {
             tempBasicTp -= tppdCost;
         }
         
-        if(basicVehicleDetailsPOJO.isCng()) {
+        if(basicVehicleDetailsPOJO.getWantCng()) {
             data.put("CNG",Double.toString(cngCost));
             tempBasicTp += cngCost;
         }

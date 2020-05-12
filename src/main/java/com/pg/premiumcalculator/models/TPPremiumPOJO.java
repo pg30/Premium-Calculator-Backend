@@ -7,14 +7,14 @@ public class TPPremiumPOJO {
 		            paToUnnamedPassenger,
 		            nfpp;
 		            
-    private boolean lessTppd;
+    private Boolean lessTppd;
     
     public TPPremiumPOJO() {
 		// TODO Auto-generated constructor stub
     	init();
 	}
     
-    void init()
+    public void init()
     {
         paToDriver=0.0;
         llToDriver=0.0;
@@ -63,11 +63,11 @@ public class TPPremiumPOJO {
 		this.nfpp = nfpp;
 	}
 
-	public boolean isLessTppd() {
+	public Boolean isLessTppd() {
 		return lessTppd;
 	}
 
-	public void setLessTppd(boolean lessTppd) {
+	public void setLessTppd(Boolean lessTppd) {
 		this.lessTppd = lessTppd;
 	}
     

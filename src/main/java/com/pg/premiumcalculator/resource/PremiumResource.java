@@ -29,6 +29,7 @@ public class PremiumResource {
 	public ResponseEntity<PremiumCalculationResponse> calculatePremium(@RequestBody PremiumCalculationRequest premiumCRequest)
 	{
 		logger.info("premium resource called");
+		logger.debug(premiumCRequest.toString());
 		
 		premiumDataService.setData(premiumCRequest);
 		PremiumCalculationResponse preResponse = premiumDataService.calculatePremium();

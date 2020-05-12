@@ -12,7 +12,7 @@ public class BasicVehicleDetailsPOJO {
 	
 	private Integer seatingCapacity;
 	
-	private boolean isCng;
+	private Boolean wantCng;
 	
 	private String 	dateOfRegistration,
 					zone,
@@ -30,7 +30,7 @@ public class BasicVehicleDetailsPOJO {
 	public String toString() {
 		return "BasicVehicleDetailsPOJO [vehicle=" + vehicle + ", idv=" + idv + ", cubicCapacity=" + cubicCapacity
 				+ ", extCngKit=" + extCngKit + ", gvw=" + gvw + ", seatingCapacity=" + seatingCapacity + ", isCng="
-				+ isCng + ", dateOfRegistration=" + dateOfRegistration + ", zone=" + zone + ", carrier=" + carrier
+				+ wantCng + ", dateOfRegistration=" + dateOfRegistration + ", zone=" + zone + ", carrier=" + carrier
 				+ ", vehicleUse=" + vehicleUse + ", vehicleType=" + vehicleType + "]";
 	}
 
@@ -43,7 +43,7 @@ public class BasicVehicleDetailsPOJO {
     	extCngKit=0.0;
     	gvw=0.0;
     	seatingCapacity=0;
-    	isCng=false;
+    	wantCng=false;
     	dateOfRegistration=null;
     	zone=null;
     	carrier=null;
@@ -111,14 +111,13 @@ public class BasicVehicleDetailsPOJO {
 		this.seatingCapacity = seatingCapacity;
 	}
 
-
-	public boolean isCng() {
-		return isCng;
+	public Boolean getWantCng() {
+		return wantCng;
 	}
 
 
-	public void setCng(boolean isCng) {
-		this.isCng = isCng;
+	public void setWantCng(Boolean wantCng) {
+		this.wantCng = wantCng;
 	}
 
 

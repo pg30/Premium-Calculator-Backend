@@ -76,7 +76,7 @@ public class ODPremium {
 	        return basicOD;
 	    }
 	    
-	    if(basicVehicleDetailsPOJO.isCng())
+	    if(basicVehicleDetailsPOJO.getWantCng())
 	    {
 	        //inbuilt
 	        if(basicVehicleDetailsPOJO.getExtCngKit()==0)
@@ -140,7 +140,7 @@ public class ODPremium {
 	        data.put("Geographical Extension",Double.toString(geoExt));
 	        basicOD+=geoExt;
 	    }
-	    if(basicVehicleDetailsPOJO.isCng())
+	    if(basicVehicleDetailsPOJO.getWantCng())
 	    {
 	        //external
 	        if(basicVehicleDetailsPOJO.getExtCngKit()>0 && basicVehicleDetailsPOJO.getVehicle().getId()==Constants.PRIVATE_CAR_ID)

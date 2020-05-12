@@ -32,7 +32,7 @@ public class TpDataService {
 			return tpRepository.findTpE(vehicle.getId());
 		
 		if(vehicle.getId()==Constants.MISCELLANEOUS_ID)
-			return tpRepository.findTpF(vehicle.getId(), basicDetailsPOJO.getVehicleType(), basicDetailsPOJO.getVehicleUse());
+			return tpRepository.findTpF(vehicle.getId(),basicDetailsPOJO.getVehicleUse(),basicDetailsPOJO.getVehicleType());
 		return 0;
 	}
 }

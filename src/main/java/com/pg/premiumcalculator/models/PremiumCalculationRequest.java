@@ -36,5 +36,13 @@ public class PremiumCalculationRequest {
 	public void setOdPremiumPOJO(ODPremiumPOJO odPremiumPOJO) {
 		this.odPremiumPOJO = odPremiumPOJO;
 	}
+
+	@Override
+	public String toString() {
+		return "PremiumCalculationRequest [basicVehicleDetailsPOJO=" + basicVehicleDetailsPOJO + ", tpPremiumPOJO="
+				+ tpPremiumPOJO + ", odPremiumPOJO=" + odPremiumPOJO + "]";
+	}
+	
+	
 		
 }

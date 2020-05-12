@@ -7,11 +7,11 @@ public class ODPremiumPOJO {
 		            ncb,
 		            odDisc;
 
-	private boolean wantImt23,
+	private Boolean wantImt23,
 	                wantGeoExt,
 	                wantOverturning;
 	
-	void init()
+	public void init()
 	{
         zeroDepRate=0.0;
         elec=0.0;
@@ -76,27 +76,27 @@ public class ODPremiumPOJO {
 		this.odDisc = odDisc;
 	}
 
-	public boolean isWantImt23() {
+	public Boolean isWantImt23() {
 		return wantImt23;
 	}
 
-	public void setWantImt23(boolean wantImt23) {
+	public void setWantImt23(Boolean wantImt23) {
 		this.wantImt23 = wantImt23;
 	}
 
-	public boolean isWantGeoExt() {
+	public Boolean isWantGeoExt() {
 		return wantGeoExt;
 	}
 
-	public void setWantGeoExt(boolean wantGeoExt) {
+	public void setWantGeoExt(Boolean wantGeoExt) {
 		this.wantGeoExt = wantGeoExt;
 	}
 
-	public boolean isWantOverturning() {
+	public Boolean isWantOverturning() {
 		return wantOverturning;
 	}
 
-	public void setWantOverturning(boolean wantOverturning) {
+	public void setWantOverturning(Boolean wantOverturning) {
 		this.wantOverturning = wantOverturning;
 	}
 	

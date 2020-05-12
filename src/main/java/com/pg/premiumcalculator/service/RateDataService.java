@@ -31,6 +31,7 @@ public class RateDataService {
         String currentDate = (Calendar.getInstance().get(Calendar.DAY_OF_MONTH)+"-"+(Calendar.getInstance().get(Calendar.MONTH)+1)+"-"+Calendar.getInstance().get(Calendar.YEAR));
 		Integer age = ageCalculatorService.getDays(currentDate, basicVehicleDetailsPOJO.getDateOfRegistration());
 		
+		logger.debug(currentDate+" "+basicVehicleDetailsPOJO.getDateOfRegistration());
 		logger.debug(age);
 		
 		Vehicle vehicle = basicVehicleDetailsPOJO.getVehicle();
