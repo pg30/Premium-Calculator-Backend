@@ -48,6 +48,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>		
+				<!-- https://mvnrepository.com/artifact/com.itextpdf/itextg -->
+		<dependency>
+		    <groupId>com.itextpdf</groupId>
+		    <artifactId>itextg</artifactId>
+		    <version>5.5.10</version>
+		</dependency>
+		
 				<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
 		    <groupId>commons-io</groupId>
