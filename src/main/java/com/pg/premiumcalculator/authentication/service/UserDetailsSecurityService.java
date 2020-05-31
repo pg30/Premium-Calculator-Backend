@@ -16,7 +16,9 @@ import com.pg.premiumcalculator.repository.UserRepository;
 public class UserDetailsSecurityService implements UserDetailsService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
+	@Autowired
+	private UserDetailsServiceImpl userService;
 
     @Override
     @Transactional
@@ -26,6 +28,8 @@ public class UserDetailsSecurityService implements UserDetailsService {
         user.orElseThrow(
                 () -> new UsernameNotFoundException("User Not Found with -> email : " + email));
 
-        return UserPrincipal.build(user.get());
+        String userRole = userService.getUserRole(user.get().getUserRole());
+        System.out.println(userRole);
+        return UserPrincipal.build(user.get(),userRole);
     }
 }

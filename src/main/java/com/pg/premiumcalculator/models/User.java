@@ -61,16 +61,27 @@ public class User {
 	private Integer userRole;
 	
 	@Column(name = "last_login")
-	private Date lastLogin;
+	private String lastLogin;
 	
 	public User()
 	{
 		
 	}
 
+	public User(@NotBlank String userName, @NotBlank @Email String emailId, String password,
+			Long mobileNo, Boolean enabled,Integer userRole)
+	{
+		super();
+		this.userName = userName;
+		this.emailId = emailId;
+		this.password = password;
+		this.mobileNo = mobileNo;
+		this.enabled = enabled;
+		this.userRole = userRole;
+	}
 	public User(String userId, @NotBlank String userName, @NotBlank @Email String emailId, String password,
 			Long mobileNo, Boolean enabled, String resetToken, Date resetTokenExpiry, String activationToken,
-			Date activationTokenExpiry, Integer userRole, Date lastLogin) {
+			Date activationTokenExpiry, Integer userRole, String lastLogin) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -174,11 +185,11 @@ public class User {
 		this.userRole = userRole;
 	}
 
-	public Date getLastLogin() {
+	public String getLastLogin() {
 		return lastLogin;
 	}
 
-	public void setLastLogin(Date lastLogin) {
+	public void setLastLogin(String lastLogin) {
 		this.lastLogin = lastLogin;
 	}
 	
